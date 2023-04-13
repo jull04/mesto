@@ -1,17 +1,17 @@
 .cards {
-    width: calc(100% - 2 * 200px);
     margin: 52px auto 67px;
     display: grid;
     gap: 20px 17px;
-    grid-template-columns: repeat(auto-fit,282px);
+    grid-template-columns: repeat(auto-fit, 282px);
     max-width: 880px;
     padding: 0;
 }
 
 @media  screen and (max-width: 767px) {
     .cards {
-        width: calc(100% - 2 * 16px);
         margin: 36px auto 79px;
+        max-width: 282px;
+        justify-content: center;
     }
   }
   
