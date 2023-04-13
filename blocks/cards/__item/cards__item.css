@@ -5,8 +5,3 @@
   border-radius: 10px;
 }
 
-@media  screen and (max-width: 767px) {
-  .cards__item {
-      width: 100%;
-}
-}

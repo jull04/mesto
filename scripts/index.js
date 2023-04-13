@@ -13,16 +13,17 @@ function closePopup() {
 buttonEdit.addEventListener('click', openPopup);
 buttonClose.addEventListener('click', closePopup);
 
-
-let formElement = document.querySelector('.popup__content');
-let nameInput = document.querySelector('.popup__input_type_name');
-let jobInput = document.querySelector('.popup__input_type_job');
+const profileName = document.querySelector('.profile__title');
+const profileJob = document.querySelector('.profile__subtitle');
+const formElement = document.querySelector('.popup__input');
+const nameInput = document.querySelector('.popup__input_type_name');
+const jobInput = document.querySelector('.popup__input_type_job');
 
 
 function handleFormSubmit (evt) {
     evt.preventDefault(); 
     profileName.textContent = nameInput.value;
-    profileName.textContent = jobInput.value;
+    profileJob.textContent = jobInput.value;
     closePopup();
 }
 
