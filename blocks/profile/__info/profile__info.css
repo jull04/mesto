@@ -8,6 +8,20 @@
     justify-content: space-between;
 }
 
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .profile__info {
+        margin: 0 210px 0 0;
+    }
+  }
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .profile__info {
+        margin: 0 auto;
+    }
+  }
+
+
 @media  screen and (max-width: 767px) {
     .profile__info {
         margin: 0 auto;
