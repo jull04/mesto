@@ -29,6 +29,7 @@
 @media  screen and (max-width: 767px) {
     .popup__content {
         width: 282px;
+        height: 322px;
         padding: 25px 22px;
     }
   }
@@ -53,6 +54,7 @@
         line-height: 22px;
         width: 238px;
         height: 22px;
+        margin: 0 0 75px;
     }
   }
 

@@ -4,7 +4,7 @@
     background-image: url(../../../images/Vector4.svg);
     background-position: 50%;
     background-repeat: no-repeat;
-    color: black;
+    background-color: white;
 }
 
 .cards__like:hover {
@@ -13,4 +13,6 @@
     cursor: pointer;
   }
 
-    
+  .cards__like: active {
+    background-image: url(../../../images/Union.png);
+  }   
