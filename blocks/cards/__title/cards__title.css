@@ -1,6 +1,5 @@
 .cards__title {
   color: #000000;
-  margin-left: 21px;
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
@@ -9,5 +8,4 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 301px;
 }

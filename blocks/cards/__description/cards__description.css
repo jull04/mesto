@@ -2,11 +2,9 @@
     align-items: center;
     box-sizing: border-box;
     display: flex;
-    flex-flow: row nowrap;
-    height: 80px;
     justify-content: space-between;
     padding: 0;
-    margin: 25px 30px 30px 21px; 
+    margin: 25px 30px 30px 21px;
     width: 241px;
     height: 23px;
 }
