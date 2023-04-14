@@ -1,7 +1,7 @@
 .cards__like {
     height: 19px;
     width: 22px;   
-    background-image: url(../../../images/Vector4.svg);
+    background-image: url(../../../images/like.svg);
     background-position: 50%;
     background-repeat: no-repeat;
     background-color: white;
@@ -14,5 +14,5 @@
   }
 
   .cards__like: active {
-    background-image: url(../../../images/Union.png);
+    background-image: url(../../../images/like-active.svg);
   }   

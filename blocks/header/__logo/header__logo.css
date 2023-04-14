@@ -2,15 +2,15 @@
     max-width: 142px;
     min-height: 33px; 
     margin: 45px 0 41px;
-    background-image: url(../../../images/Vector.png);
+    background-image: url(../../../images/logo-big.svg);
 }
 
 @media  screen and (max-width: 767px) {
     .header__logo {
        max-width: 104px;
        min-height: 24px;
-       background-image: url(../../../images/Vector\ \(2\).png);
-       margin: 20px 0 31px;
+       background-image: url(../../../images/logo-small.svg);
+       margin: 20px 0 31px 27px;
     }
   }
   

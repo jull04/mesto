@@ -1,9 +1,9 @@
 .cards {
     margin: 52px auto 67px;
     display: grid;
-    gap: 20px 17px;
     grid-template-columns: repeat(auto-fit, 282px);
     max-width: 880px;
+    gap: 20px 17px;
     padding: 0;
 }
 
