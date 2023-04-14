@@ -1,11 +1,8 @@
 .profile__name {
     display: flex;
     flex-direction: row;
-    align-items: center;
     gap: 25px;
     align-items: flex-end;
-    margin-bottom: 10px;
-
 }
 
 @media  screen and (max-width: 767px) {
