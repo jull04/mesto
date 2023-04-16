@@ -4,6 +4,10 @@
   font-size: 18px;
   line-height: 22px;
   margin: 5px 0 0 0;
+  max-width: 336px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 
@@ -14,10 +18,11 @@
 }
 
 @media  screen and (max-width: 767px) {
-    .profile__subtitle {
-        font-size: 14px;
-        line-height: 17px;
-        text-align: center;
-        margin: 14px auto 0;
+  .profile__subtitle {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    margin: 14px auto 0;
+    max-width: 289px;
   }
 }

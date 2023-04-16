@@ -2,24 +2,19 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  margin: 36px 50px 0 0;
+  margin: 36px 30px 0 0;
 }
 
-@media (min-width: 1024px) and (max-width: 1279px) {
+@media (min-width: 768px) and (max-width: 1279px) {
   .profile__avatar {
     margin-right: 42px auto 0;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .profile__avatar {
-    margin-right: 42px auto 0;
-  }
-}
 
 
 @media  screen and (max-width: 767px) {
     .profile__avatar {
         margin: 42px auto 24px;
     }
-  }
+}
