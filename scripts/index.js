@@ -40,3 +40,13 @@ buttonEdit.addEventListener('click', openPopup);
 buttonClose.addEventListener('click', closePopup);
 buttonCloseadd.addEventListener('click', closePopupadd);
 formElement.addEventListener('submit', handleFormSubmit); 
+
+
+const buttonLike = document.querySelector('.cards__like');
+
+function like() {
+    buttonLike.classList.toggle('cards__like_active');
+}
+
+buttonLike.addEventListener('click', like);
+
