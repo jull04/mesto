@@ -8,60 +8,6 @@
   border: none;
 }
 
-.cards__like_two {
-  height: 19px;
-  width: 22px;
-  background-image: url(../../../images/like.svg);
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-color: white;
-  border: none;
-}
-
-.cards__like_three {
-  height: 19px;
-  width: 22px;
-  background-image: url(../../../images/like.svg);
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-color: white;
-  border: none;
-}
-
-.cards__like_four {
-  height: 19px;
-  width: 22px;
-  background-image: url(../../../images/like.svg);
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-color: white;
-  border: none;
-}
-
-.cards__like_five {
-  height: 19px;
-  width: 22px;
-  background-image: url(../../../images/like.svg);
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-color: white;
-  border: none;
-}
-
-.cards__like_six{
-  height: 19px;
-  width: 22px;
-  background-image: url(../../../images/like.svg);
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-color: white;
-  border: none;
-}
-
-
-
-
-
 .cards__like:hover {
   opacity: 0.5;
   transition: opacity 0.2s linear;

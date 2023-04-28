@@ -42,62 +42,11 @@ buttonCloseadd.addEventListener('click', closePopupadd);
 formElement.addEventListener('submit', handleFormSubmit); 
 
 
-const buttonLike = document.querySelector('.cards__like');
-
-function like() {
-    buttonLike.classList.toggle('cards__like_active');
-}
-
-buttonLike.addEventListener('click', like);
-
-
-
-const buttonLiketwo = document.querySelector('.cards__like_two');
-
-function liket() {
-    buttonLiketwo.classList.toggle('cards__like_active');
-}
-
-buttonLiketwo.addEventListener('click', liket);
-
-
-
-const buttonLikethree = document.querySelector('.cards__like_three');
-
-function likeh() {
-    buttonLikethree.classList.toggle('cards__like_active');
-}
-
-buttonLikethree.addEventListener('click', likeh);
-
-
-
-const buttonLikefour = document.querySelector('.cards__like_four');
-
-function likef() {
-    buttonLikefour.classList.toggle('cards__like_active');
-}
-
-buttonLikefour.addEventListener('click', likef);
-
-
-
-const buttonLikefive = document.querySelector('.cards__like_five');
-
-function likes() {
-    buttonLikefive.classList.toggle('cards__like_active');
-}
-
-buttonLikefive.addEventListener('click', likes);
-
-
-
-const buttonLikesix = document.querySelector('.cards__like_six');
-
-function liked() {
-    buttonLikesix.classList.toggle('cards__like_active');
-}
-
-buttonLikesix.addEventListener('click', liked);
-
-
+function like(event) {
+    event.target.classList.toggle('cards__like_active');
+  }
+  
+  document.querySelectorAll('.cards__like').forEach(item => {
+    item.addEventListener('click', like);
+  });
+  
