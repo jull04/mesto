@@ -43,6 +43,8 @@ formElement.addEventListener('submit', handleFormSubmit);
 
 
 
+
+
 const initialCards = [
     {
       name: 'Архыз',
@@ -70,25 +72,23 @@ const initialCards = [
     }
 ];
 
-initialCards.push();
-
 const cardTemplate = document.getElementById('card-template');
 const cardContainer = document.querySelector('.cards');
 
 const createCardElement = (cardData) => {
-  const cardElement = cardTemplate.content.querySelector('.cards__item').cloneNode(true);
+  const cardsElement = cardTemplate.content.querySelector('.cards__item').cloneNode(true);
 
-  const cardImage = cardElement.querySelector('.cards__image');
-  const cardTitle =  cardElement.querySelector('.cards__title');
-  const cardDeleteButton = cardElement.querySelector('.cards__trash');
-  const cardLikeButton = cardElement.querySelector('.cards__like');
+  const cardImage = cardsElement.querySelector('.cards__image');
+  const cardTitle =  cardsElement.querySelector('.cards__title');
+  const cardDeleteButton = cardsElement.querySelector('.cards__trash');
+  const cardLikeButton = cardsElement.querySelector('.cards__like');
 
   cardTitle.textContent = cardData.name;
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
 
   const handleDelete = () => {
-    cardElement.remove();
+    cardsElement.remove();
   };
 
   const handleLike = (evt) => {
@@ -98,34 +98,50 @@ const createCardElement = (cardData) => {
   cardDeleteButton.addEventListener('click', handleDelete);
   cardLikeButton.addEventListener('click', handleLike);
 
-  return cardElement;
+  return cardsElement;
 };
 
-initialCards.forEach((card) => {
-  const element = createCardElement(card);
-  cardContainer.appendChild(element);
-})
+const renderAddElement = (cardsElement) => {
+    cardContainer.append(cardsElement);
+};
 
-// форма добавления картинок
+initialCards.forEach((initialCards) => {
+  const element = createCardElement(initialCards);
+  renderAddElement(element);
+});
+
+
+ 
+// добавление карточки
 
 const formElementAdd = document.querySelector('.popup__content_add');
+const formAdd = document.querySelector('.popup_add');
 const titleInput = document.querySelector('.popup__input_title');
 const linkInput = document.querySelector('.popup__input_link');
-const titleCard = document.querySelector('.cards__title');
-const linkCard = document.querySelector('.cards__image');
 
-const handleFormSave = (evt) => {
-    evt.preventDefault(); 
-    const title = titleInput.value;
-    const link = linkInput.value;
-   
-    const initialCards = {
-        title,
-        link,
-    };
+const buttonCloseAdd = document.querySelector('.popup__close_add');
 
-    renerAddElement(createCardElement(initialCards));
-    closePopup();
+function closePopupAdd() {
+    formAdd.classList.remove('popup__visible');
 }
 
-formElementAdd.addEventListener('submit', handleFormSave);
+buttonCloseAdd.addEventListener('click', closePopup);
+
+const handleAddFormSubmit = (event) => {
+    event.preventDefault();
+    const name = titleInput.value;
+    const link = linkInput.value;
+
+    const initialCards = {
+        name,
+        link,
+    };
+    renderAddElement(createCardElement(initialCards)); 
+    closePopupAdd();
+    event.target.reset(event);
+    
+};
+
+
+formElementAdd.addEventListener('submit', handleAddFormSubmit);
+
