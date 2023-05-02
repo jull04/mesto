@@ -100,6 +100,16 @@ const createCardElement = (cardData) => {
   cardDeleteButton.addEventListener('click', handleDelete);
   cardLikeButton.addEventListener('click', handleLike);
 
+
+
+  const openPopupImg = () => {
+    popupDescription.textContent = cardData.name;
+    popupPhoto.src = cardData.link;
+    openPopupImg();
+}
+  cardImage.addEventListener('click', openPopupImg)
+
+
   return cardsElement;
 };
 
@@ -122,6 +132,8 @@ const titleInput = document.querySelector('.popup__input_title');
 const linkInput = document.querySelector('.popup__input_link');
 
 const buttonCloseAdd = document.querySelector('.popup__close_add');
+
+const popupImgClose = document.querySelector(".popup__close_img");
 
 function closePopupAdd() {
     formAdd.classList.remove('popup__visible');
@@ -150,7 +162,7 @@ formElementAdd.addEventListener('submit', handleAddFormSubmit);
 
 // попап для фоток
 
-const cardsElement = cardTemplate.content.querySelector('.cards__item').cloneNode(true);
+
 
 
 const popupImages = document.querySelector(".popup_img");
