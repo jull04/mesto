@@ -8,7 +8,6 @@
   background-image: url(../../../images/close.svg);
   width: 32px;
   height: 32px;
-  background-size: cover;
 }
 
 @media  screen and (max-width: 767px) {
@@ -17,6 +16,7 @@
     height: 20px;
     right: 0;
     top: -36px;
+    background-size: cover;
     }
 }
 
