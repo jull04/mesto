@@ -150,3 +150,29 @@ formElementAdd.addEventListener('submit', handleAddFormSubmit);
 
 // попап для фоток
 
+const cardsElement = cardTemplate.content.querySelector('.cards__item').cloneNode(true);
+
+
+const popupImages = document.querySelector(".popup_img");
+const popupDescription = document.querySelector(".popup__description");
+const popupImgForm = document.querySelector(".popup__content_img");
+const popupPhoto = document.querySelector(".popup__img");
+
+const cardImage = document.querySelector('.cards__image');
+
+function openPopupImg() {
+    popupImages.classList.add('popup__visible');
+}
+
+cardImage.addEventListener('click', openPopupImg);
+
+
+
+const handleImgClick = (cardData) => {
+    cardData.preventDefault();
+    cardData.name = popupDescription.textContent;
+    cardData.link = popupPhoto.src;
+};
+
+
+popupImages.addEventListener("click", handleImgClick);
