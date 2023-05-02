@@ -16,7 +16,7 @@
     height: 20px;
     right: 0;
     top: -36px;
-    background-size: cover;
+    background-size: contain;
     }
 }
 
