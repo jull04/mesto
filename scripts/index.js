@@ -105,8 +105,6 @@ const createCardElement = (cardData) => {
 
   // открытие фотки
 
-  
-
   function openPopupIm() {
       popupImages.classList.add('popup__visible');
   }
