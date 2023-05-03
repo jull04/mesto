@@ -36,6 +36,7 @@ function handleFormSubmit (evt) {
     closePopup();
 }
 
+
 buttonEdit.addEventListener('click', openPopup);
 buttonClose.addEventListener('click', closePopup);
 buttonCloseadd.addEventListener('click', closePopupadd);
@@ -85,6 +86,7 @@ const createCardElement = (cardData) => {
   const cardDeleteButton = cardsElement.querySelector('.cards__trash');
   const cardLikeButton = cardsElement.querySelector('.cards__like');
 
+
   cardTitle.textContent = cardData.name;
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
@@ -101,13 +103,25 @@ const createCardElement = (cardData) => {
   cardLikeButton.addEventListener('click', handleLike);
 
 
+  // открытие фотки
+
+  
+
+  function openPopupIm() {
+      popupImages.classList.add('popup__visible');
+  }
+  
+  cardImage.addEventListener('click', openPopupIm);
+
 
   const openPopupImg = () => {
     popupDescription.textContent = cardData.name;
     popupPhoto.src = cardData.link;
-    openPopupImg();
-}
-  cardImage.addEventListener('click', openPopupImg)
+    openPopupIm();
+  }
+
+  cardImage.addEventListener('click', openPopupImg);
+
 
 
   return cardsElement;
@@ -130,10 +144,8 @@ const formElementAdd = document.querySelector('.popup__content_add');
 const formAdd = document.querySelector('.popup_add');
 const titleInput = document.querySelector('.popup__input_title');
 const linkInput = document.querySelector('.popup__input_link');
-
 const buttonCloseAdd = document.querySelector('.popup__close_add');
 
-const popupImgClose = document.querySelector(".popup__close_img");
 
 function closePopupAdd() {
     formAdd.classList.remove('popup__visible');
@@ -163,12 +175,12 @@ formElementAdd.addEventListener('submit', handleAddFormSubmit);
 // попап для фоток
 
 
-
-
 const popupImages = document.querySelector(".popup_img");
 const popupDescription = document.querySelector(".popup__description");
 const popupImgForm = document.querySelector(".popup__content_img");
 const popupPhoto = document.querySelector(".popup__img");
+
+// открытие фотки
 
 const cardImage = document.querySelector('.cards__image');
 
@@ -177,6 +189,17 @@ function openPopupImg() {
 }
 
 cardImage.addEventListener('click', openPopupImg);
+
+// закрытие фотки 
+
+const popupImgClose = document.querySelector(".popup__close_img");
+
+function closePopupImg() {
+    popupImages.classList.remove('popup__visible');
+}
+
+popupImgClose.addEventListener('click', closePopupImg);
+
 
 
 
@@ -188,3 +211,5 @@ const handleImgClick = (cardData) => {
 
 
 popupImages.addEventListener("click", handleImgClick);
+
+
