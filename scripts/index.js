@@ -105,6 +105,8 @@ const createCardElement = (cardData) => {
 
   // открытие фотки
 
+  
+
   function openPopupIm() {
       popupImages.classList.add('popup__visible');
   }
@@ -175,7 +177,7 @@ formElementAdd.addEventListener('submit', handleAddFormSubmit);
 
 const popupImages = document.querySelector(".popup_img");
 const popupDescription = document.querySelector(".popup__description");
-const popupImgForm = document.querySelector(".popup__content_img");
+const popupImgForm = document.querySelector(".popup__content-img");
 const popupPhoto = document.querySelector(".popup__img");
 
 // открытие фотки
