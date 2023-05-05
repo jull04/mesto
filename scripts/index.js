@@ -1,7 +1,7 @@
 const buttonEdit = document.querySelector('.profile__edit-button');
-const buttonClose = document.querySelector('.popup__close');
-const buttonCloseadd = document.querySelector('.popup__close_add');
 const popupEdit = document.querySelector('.popup_edit');
+const buttonCloseEdit = popupEdit.querySelector('.popup__close');
+const buttonCloseAdd = document.querySelector('.popup__close_add');
 const profileName = document.querySelector('.profile__title');
 const profileJob = document.querySelector('.profile__subtitle');
 const formElement = document.querySelector('.popup__content');
@@ -9,7 +9,6 @@ const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_job');
 const buttonAdd = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('.popup_add');
-const popup = document.querySelector('.popup');
 
 
 
@@ -45,8 +44,8 @@ const closePopupAdd = () => {
 }  
 
 buttonEdit.addEventListener('click', () => openPopup(popupEdit));
-buttonClose.addEventListener('click', () => closePopup(popupEdit));
-buttonCloseadd.addEventListener('click', () => closePopup(popupAdd));
+buttonCloseEdit.addEventListener('click', () => closePopup(popupEdit));
+buttonCloseAdd.addEventListener('click', () => closePopup(popupAdd));
 buttonAdd.addEventListener('click', () => openPopup(popupAdd));
 
 
@@ -152,7 +151,6 @@ initialCards.forEach((initialCards) => {
 const formElementAdd = document.querySelector('.popup__content_add');
 const titleInput = document.querySelector('.popup__input_title');
 const linkInput = document.querySelector('.popup__input_link');
-const buttonCloseAdd = document.querySelector('.popup__close_add');
 
 
 const handleAddFormSubmit = (event) => {
