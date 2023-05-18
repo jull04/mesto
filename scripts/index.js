@@ -11,6 +11,24 @@ const buttonAdd = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('.popup_add');
 
 
+const handlePopupClose = (evt) => {
+    const isOverlay = evt.target.classList.contains('popup'); 
+    const isCloseBtn = evt.target.classList.contains('popup__close');
+  
+    if (isOverlay || isCloseBtn) {
+      popupList.forEach(closePopup);
+    }
+  }; 
+  
+  const closePressTheEsc = (evt) => {
+    if (evt.key === 'Escape') {
+      popupList.forEach(closePopup);
+    }
+  }
+
+
+
+
 
 // общие функци для закрытия и открытия попапов
 
@@ -33,6 +51,7 @@ const closePopupEdit = () => {
     closePopup(popupEdit);
 }
 
+
 // закрытие и открытие попапа добпвления
 
 const openPopupAdd = () => {
@@ -51,7 +70,6 @@ buttonAdd.addEventListener('click', () => openPopup(popupAdd));
 
 // submit попапа редактирования
 
-
 function handleFormSubmit (evt) {
     evt.preventDefault(); 
     profileName.textContent = nameInput.value;
@@ -61,37 +79,6 @@ function handleFormSubmit (evt) {
 
 formElement.addEventListener('submit', handleFormSubmit); 
 
-
-
-
-// массив фоток
-
-const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
 
 
 const cardTemplate = document.getElementById('card-template');
@@ -145,7 +132,7 @@ initialCards.forEach((initialCards) => {
 });
 
 
- 
+
 // добавление карточки
 
 const formElementAdd = document.querySelector('.popup__content_add');
@@ -195,8 +182,3 @@ const closePopupImg = () => {
 }
 
 popupImgClose.addEventListener('click', () => closePopup(popupImage));
-
-
-
-
-
