@@ -5,7 +5,7 @@ const showInputError = (formElement, inputElement, errorMessage, obj) => {
     errorElement.classList.add(obj.errorClass);
   };
   
-  //убирает ошибки
+ 
   const hideInputError = (formElement, inputElement, obj) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove(obj.inputErrorClass);
@@ -13,7 +13,7 @@ const showInputError = (formElement, inputElement, errorMessage, obj) => {
     errorElement.textContent = '';
   };
   
-  //проверяет инпут на валидность при наборе символов и выводит предупрждающие сообщения
+  
   const checkInputValidity = (formElement, inputElement, obj) => {
     if (!inputElement.validity.valid) {
       showInputError(formElement, inputElement, inputElement.validationMessage, obj);
@@ -22,10 +22,10 @@ const showInputError = (formElement, inputElement, errorMessage, obj) => {
     }
   };
   
-  //ф-я обходит массив полей и отвечает на вопрос: «Есть ли здесь хотя бы одно поле, которое не прошло валидацию?»
+
   const hasInvalidInput = (inputList) => { 
-    return inputList.some((inputElement) => { //false - все поля валидны
-      return !inputElement.validity.valid; //не true - нет невалидных полей
+    return inputList.some((inputElement) => { 
+      return !inputElement.validity.valid; 
     });
   };
   
@@ -39,16 +39,16 @@ const showInputError = (formElement, inputElement, errorMessage, obj) => {
     buttonElement.removeAttribute('disabled', true);
   }
   
-  //блокирует кнопку, если хотя бы одно поле невалидно
+
   const toggleButtonState = (inputList, buttonElement, obj) => {
-    if (hasInvalidInput(inputList)) { //проверяем есть ли невалидные поля
+    if (hasInvalidInput(inputList)) { 
       deactivateButton(buttonElement, obj);
     } else {
       activateButton(buttonElement, obj);
     }
   }
   
-  //навешивает слушатель на все инпуты с проверкой полей и активацией кнопки
+  
   const setEventListeners = (formElement, obj) => { 
     const inputList = Array.from(formElement.querySelectorAll(obj.inputSelector));
     const buttonElement = formElement.querySelector(obj.submitButtonSelector);
@@ -58,13 +58,12 @@ const showInputError = (formElement, inputElement, errorMessage, obj) => {
     inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', function () {
         checkInputValidity(formElement, inputElement, obj);
-        // чтобы проверять его при изменении любого из полей
         toggleButtonState(inputList, buttonElement, obj);
       });
     });
   };
   
-  //навешивает слушатель на все формы в документе и снимает стандартные действия
+
   const enableValidation = (obj) => {
     const formList = Array.from(document.querySelectorAll(obj.formSelector));
     formList.forEach((formElement) => {
