@@ -10,34 +10,40 @@ const jobInput = document.querySelector('.popup__input_type_job');
 const buttonAdd = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('.popup_add');
 
+const popupList = document.querySelectorAll('.popup');
+
+
 
 const handlePopupClose = (evt) => {
-    const isOverlay = evt.target.classList.contains('popup'); 
+    const isOverlay = evt.target.classList.contains('popup');
     const isCloseBtn = evt.target.classList.contains('popup__close');
-  
     if (isOverlay || isCloseBtn) {
-      popupList.forEach(closePopup);
+        closePopup(evt.target);
     }
-  }; 
-  
-  const closePressTheEsc = (evt) => {
+};
+
+const closePressTheEsc = (evt) => {
     if (evt.key === 'Escape') {
-      popupList.forEach(closePopup);
+        const openedPopup = document.querySelector('.popup_visible');
+    closePopup(openedPopup); 
     }
-  }
+    };
 
-
-
-
-
+    popupList.forEach((popup) => {
+        popup.addEventListener("click", handlePopupClose);
+    })
+    
 // общие функци для закрытия и открытия попапов
 
 function openPopup(popup) {
     popup.classList.add('popup__visible');
+    document.addEventListener('keydown', closePressTheEsc);
+
 }
   
 function closePopup(popup) {
     popup.classList.remove('popup__visible');
+    document.removeEventListener('keydown',closePressTheEsc); 
 }
 
 
