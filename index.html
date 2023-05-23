@@ -38,14 +38,10 @@
         <form class="popup__content" name="edit-form" novalidate>
           <button type="button" class="popup__close popup__close_edit" aria-label="Закрыть"></button>  
           <h3 class="popup__title">Редактировать профиль</h3>
-          <label class="popup__field">
             <input id="name" class="popup__input popup__input_type_name" type="text" name="firstname"  placeholder="Имя" value="Юля Хабибова" minlength="2" maxlength="40" required>
             <span class="name-error popup__error popup__error_visible"></span>
-          </label>
-          <label class="popup__field">
             <input id="job" class="popup__input popup__input_type_job" type="text" name="info" placeholder="О себе" value="Природа и коты" minlength="2" maxlength="200" required>
             <span class="job-error popup__error popup__error_visible"></span>
-          </label>
           <button type="submit" class="popup__submit" value="Сохранить">Сохранить</button>
         </form>
       </div>
@@ -53,18 +49,13 @@
         <form class="popup__content popup__content_add" name="add-form" novalidate>
           <button type="button" class="popup__close popup__close_add" aria-label="Закрыть"></button>  
           <h3 class="popup__title">Новое место</h3>
-          <label class="popup__field">
             <input id="add" class="popup__input popup__input_title" type="text" name="info" placeholder="Название" required>
             <span class="add-error popup__error popup__error_visible"></span>
-          </label>
-          <label class="popup__field">
-                <input id="url" class="popup__input popup__input_link" type="url" name="info" placeholder="Ссылка на картинку" required>
-                <span class="url-error popup__error popup__error_visible"></span>
-          </label>
+            <input id="url" class="popup__input popup__input_link" type="url" name="info" placeholder="Ссылка на картинку" required>
+            <span class="url-error popup__error popup__error_visible"></span>
           <button type="submit" class="popup__submit" value="Создать">Создать</button>
         </form>
       </div>
-
       <div class="popup popup_img">
         <form class="popup__content-img" name="img-form">
             <button class="popup__close popup__close_img" aria-label="Закрыть" type="button"></button>
