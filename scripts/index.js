@@ -9,9 +9,7 @@ const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_job');
 const buttonAdd = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('.popup_add');
-
 const popupList = document.querySelectorAll('.popup');
-
 
 
 const handlePopupClose = (evt) => {

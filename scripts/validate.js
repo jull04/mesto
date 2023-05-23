@@ -1,20 +1,20 @@
 const hideInputError = (formElement, inputElement, obj) => {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove(obj.inputErrorClass);
-    errorElement.classList.remove(obj.errorClass);
-    errorElement.textContent = '';
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove(obj.inputErrorClass);
+  errorElement.classList.remove(obj.errorClass);
+  errorElement.textContent = '';
 };
     
 
 const showInputError = (formElement, inputElement, errorMessage, obj) => {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add(obj.inputErrorClass);
-    errorElement.textContent = errorMessage;
-    errorElement.classList.add(obj.errorClass);
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add(obj.inputErrorClass);
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add(obj.errorClass);
 };
   
   
-// проверяет поле на валидность и выводит сообщение об ошибке
+// проверка при наборе и вывод сообщения об ошибке
 
 const checkInputValidity = (formElement, inputElement, obj) => {
   if (!inputElement.validity.valid) {
@@ -39,13 +39,13 @@ const hasInvalidInput = (inputList) => {
 const activateButton = (buttonElement, obj) => {
     buttonElement.classList.remove(obj.inactiveButtonClass);
     buttonElement.removeAttribute('disabled', true);
-}
+};
     
 
 const deactivateButton = (buttonElement, obj) => {
   buttonElement.classList.add(obj.inactiveButtonClass);
   buttonElement.setAttribute('disabled', true);
-}
+};
   
 
 const toggleButtonState = (inputList, buttonElement, obj) => {
@@ -53,8 +53,8 @@ const toggleButtonState = (inputList, buttonElement, obj) => {
     deactivateButton(buttonElement, obj);
   } else {
     activateButton(buttonElement, obj);
-  }
-}
+  };
+};
   
   
 //вешает слушатель на все инпуты
@@ -92,6 +92,6 @@ enableValidation({
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__submit',
   inactiveButtonClass: 'popup__submit_disabled',
-  inputErrorClass: 'popup__input_valid_error',
+  inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__error_visible'
 });
