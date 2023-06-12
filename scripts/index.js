@@ -80,10 +80,8 @@ const openPopupAdd = () => {
 const closePopupAdd = () => { 
   closePopup(popupAdd); 
 };
-
+//не очень поняла что именно здесь нужно исправить, данные пользователя и так отображаются в инпутах при открытии формы
 buttonEdit.addEventListener('click', () => openPopup(popupEdit));
-buttonCloseEdit.addEventListener('click', () => closePopup(popupEdit));
-buttonCloseAdd.addEventListener('click', () => closePopup(popupAdd));
 buttonAdd.addEventListener('click', () => openPopup(popupAdd));
 
 // submit попапа редактирования
@@ -114,7 +112,8 @@ const handleAddFormSubmit = (event) => {
   cardsContainer.prepend(createNewCard(newCardData)); 
   closePopupAdd();
   event.target.reset();
-  enableValidation(); 
+  formProfileValidator.enableValidation();
+  formAddValidator.enableValidation();
 };
 
 formElementAdd.addEventListener('submit', handleAddFormSubmit);
