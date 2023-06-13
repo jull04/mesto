@@ -11,8 +11,6 @@ const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_job');
 const buttonAdd = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('.popup_add');
-
-
 const formEditProfilee = document.forms['edit-form'];
 const formAddCard = document.forms['add-form'];
 
@@ -67,10 +65,6 @@ const openPopupEdit = () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
   formProfileValidator.resetError();
-};
-
-const closePopupEdit = () => {
-  closePopup(popupEdit);
 };
 
 // закрытие и открытие попапа добавления

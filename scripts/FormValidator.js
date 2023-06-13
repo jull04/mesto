@@ -26,7 +26,7 @@ class FormValidator {
         input.classList.add(this._inputErrorClass);
         this._errorElement.textContent = input.validationMessage; 
         this._errorElement.classList.add(this._errorClass);
-      }
+    }
       
     _hideInputError = (input) => {
       this._errorElement = this._form.querySelector(`.${input.id}-error`);
