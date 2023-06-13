@@ -4,8 +4,6 @@ import { FormValidator } from "./FormValidator.js";
 
 const buttonEdit = document.querySelector('.profile__edit-button');
 const popupEdit = document.querySelector('.popup_edit');
-const buttonCloseEdit = popupEdit.querySelector('.popup__close');
-const buttonCloseAdd = document.querySelector('.popup__close_add');
 const profileName = document.querySelector('.profile__title');
 const profileJob = document.querySelector('.profile__subtitle');
 const formEditProfile = document.querySelector('.popup__content');
@@ -13,7 +11,7 @@ const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_job');
 const buttonAdd = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('.popup_add');
-const popupList = document.querySelectorAll('.popup');
+
 
 const formEditProfilee = document.forms['edit-form'];
 const formAddCard = document.forms['add-form'];
@@ -63,26 +61,34 @@ function closePopup(popup) {
   document.removeEventListener('keydown', closePressTheEsc);
 };
 
+const popupName = document.querySelector(".popup__input_type_name");
+const popupJob = document.querySelector(".popup__input_type_job");
+
+
 // закрытие и открытие попапа редактирования 
 const openPopupEdit = () => {
   openPopup(popupEdit);
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
+  formProfileValidator.resetError();
 };
 
 const closePopupEdit = () => {
   closePopup(popupEdit);
 };
 
-// закрытие и открытие попапа добпвления
+// закрытие и открытие попапа добавления
 const openPopupAdd = () => {
   openPopup(popupAdd);
+  formAddValidator.resetError();
 };
 
 const closePopupAdd = () => { 
   closePopup(popupAdd); 
 };
-//не очень поняла что именно здесь нужно исправить, данные пользователя и так отображаются в инпутах при открытии формы
-buttonEdit.addEventListener('click', () => openPopup(popupEdit));
-buttonAdd.addEventListener('click', () => openPopup(popupAdd));
+
+buttonEdit.addEventListener('click', openPopupEdit);
+buttonAdd.addEventListener('click', openPopupAdd);
 
 // submit попапа редактирования
 function submitEditProfileForm (evt) {
@@ -112,8 +118,6 @@ const handleAddFormSubmit = (event) => {
   cardsContainer.prepend(createNewCard(newCardData)); 
   closePopupAdd();
   event.target.reset();
-  formProfileValidator.enableValidation();
-  formAddValidator.enableValidation();
 };
 
 formElementAdd.addEventListener('submit', handleAddFormSubmit);
@@ -123,25 +127,15 @@ const popupImage = document.querySelector(".popup_img");
 const popupImageDescription = popupImage.querySelector(".popup__description");
 const popupImagePhoto = popupImage.querySelector(".popup__img");
 
-// закрытие фотки 
-const popupImgClose = document.querySelector(".popup__close_img");
-
-const closePopupImg = () => {
-  closePopup(popupImage);
-};
-
-popupImgClose.addEventListener('click', () => closePopup(popupImage));
-
-const selectorTemplate = '#card-template';
-
-const cardsContainer = document.querySelector('.cards');
-
 const openPopupImg = (cardData) => {
   popupImageDescription.textContent = cardData.name;
   popupImagePhoto.src = cardData.link;
   popupImagePhoto.alt = cardData.name;
   openPopup(popupImage);
 };
+  
+const selectorTemplate = '#card-template';
+const cardsContainer = document.querySelector('.cards');
 
 function createNewCard(element) {
   const card = new Card(element, selectorTemplate, openPopupImg); 
