@@ -61,10 +61,6 @@ function closePopup(popup) {
   document.removeEventListener('keydown', closePressTheEsc);
 };
 
-const popupName = document.querySelector(".popup__input_type_name");
-const popupJob = document.querySelector(".popup__input_type_job");
-
-
 // закрытие и открытие попапа редактирования 
 const openPopupEdit = () => {
   openPopup(popupEdit);
