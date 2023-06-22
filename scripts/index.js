@@ -26,7 +26,7 @@ const validationConfig = {
 };
 
 const selectorTemplate = '#card-template';
-const cardsContainer = docu3ment.querySelector('.cards');
+const cardsContainer = document.querySelector('.cards');
 const popupEditSelector = '#popup_edit';
 
 //экземпляры класса для разных форм
