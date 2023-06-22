@@ -36,7 +36,7 @@ formProfileValidator.enableValidation();
 const formAddValidator = new FormValidator(validationConfig, formAddCard);
 formAddValidator.enableValidation();
 
-constProfilePopup = new Popup(popupEditSelector)
+const profilePopup = new Popup(popupEditSelector);
 
 // const handlePopupClose = (evt) => {
 //   const overlay = evt.target.classList.contains('popup');
@@ -53,39 +53,39 @@ constProfilePopup = new Popup(popupEditSelector)
 //   };
 // };
     
-// // общие функци для закрытия и открытия попапов
-// function openPopup(popup) {
-//   popup.classList.add('popup__visible');
-//   document.addEventListener('click', handlePopupClose);
-//   document.addEventListener('keydown', closePressTheEsc);
-// };
+// общие функци для закрытия и открытия попапов
+function openPopup(popup) {
+  popup.classList.add('popup__visible');
+  document.addEventListener('click', handlePopupClose);
+  document.addEventListener('keydown', closePressTheEsc);
+};
   
-// function closePopup(popup) {
-//   popup.classList.remove('popup__visible');
-//   document.removeEventListener('click', handlePopupClose);
-//   document.removeEventListener('keydown', closePressTheEsc);
-// };
+function closePopup(popup) {
+  popup.classList.remove('popup__visible');
+  document.removeEventListener('click', handlePopupClose);
+  document.removeEventListener('keydown', closePressTheEsc);
+};
 
-// закрытие и открытие попапа редактирования 
-// const openPopupEdit = () => {
-//   openPopup(popupEdit);
-//   nameInput.value = profileName.textContent;
-//   jobInput.value = profileJob.textContent;
-//   formProfileValidator.resetError();
-// };
+//закрытие и открытие попапа редактирования 
+const openPopupEdit = () => {
+  openPopup(popupEdit);
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
+  formProfileValidator.resetError();
+};
 
-// // закрытие и открытие попапа добавления
-// const openPopupAdd = () => {
-//   openPopup(popupAdd);
-//   formAddValidator.resetError();
-// };
+// закрытие и открытие попапа добавления
+const openPopupAdd = () => {
+  openPopup(popupAdd);
+  formAddValidator.resetError();
+};
 
-// const closePopupAdd = () => { 
-//   closePopup(popupAdd); 
-// };
+const closePopupAdd = () => { 
+  closePopup(popupAdd); 
+};
 
-// buttonEdit.addEventListener('click', openPopupEdit);
-// buttonAdd.addEventListener('click', openPopupAdd);
+buttonEdit.addEventListener('click', openPopupEdit);
+buttonAdd.addEventListener('click', openPopupAdd);
 
 // submit попапа редактирования
 function submitEditProfileForm (evt) {
@@ -128,7 +128,7 @@ const openPopupImg = (cardData) => {
   popupImageDescription.textContent = cardData.name;
   popupImagePhoto.src = cardData.link;
   popupImagePhoto.alt = cardData.name;
-//   openPopup(popupImage);
+  openPopup(popupImage);
 };
   
 
