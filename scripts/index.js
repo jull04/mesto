@@ -1,6 +1,7 @@
 import { initialCards } from "./constants.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
+import { Popup } from "./Popup.js";
 
 const buttonEdit = document.querySelector('.profile__edit-button');
 const popupEdit = document.querySelector('.popup_edit');
@@ -24,6 +25,10 @@ const validationConfig = {
   errorClass: 'popup__error_visible'
 };
 
+const selectorTemplate = '#card-template';
+const cardsContainer = docu3ment.querySelector('.cards');
+const popupEditSelector = '#popup_edit';
+
 //экземпляры класса для разных форм
 const formProfileValidator = new FormValidator(validationConfig, formEditProfilee);
 formProfileValidator.enableValidation();
@@ -31,54 +36,56 @@ formProfileValidator.enableValidation();
 const formAddValidator = new FormValidator(validationConfig, formAddCard);
 formAddValidator.enableValidation();
 
-const handlePopupClose = (evt) => {
-  const overlay = evt.target.classList.contains('popup');
-  const closeBtn = evt.target.classList.contains('popup__close');
-    if (overlay || closeBtn) {
-      closePopup(evt.target);
-    };
-};
+constProfilePopup = new Popup(popupEditSelector)
 
-const closePressTheEsc = (evt) => {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup__visible');
-  closePopup(openedPopup); 
-  };
-};
+// const handlePopupClose = (evt) => {
+//   const overlay = evt.target.classList.contains('popup');
+//   const closeBtn = evt.target.classList.contains('popup__close');
+//     if (overlay || closeBtn) {
+//       closePopup(evt.target);
+//     };
+// };
+
+// const closePressTheEsc = (evt) => {
+//   if (evt.key === 'Escape') {
+//     const openedPopup = document.querySelector('.popup__visible');
+//   closePopup(openedPopup); 
+//   };
+// };
     
-// общие функци для закрытия и открытия попапов
-function openPopup(popup) {
-  popup.classList.add('popup__visible');
-  document.addEventListener('click', handlePopupClose);
-  document.addEventListener('keydown', closePressTheEsc);
-};
+// // общие функци для закрытия и открытия попапов
+// function openPopup(popup) {
+//   popup.classList.add('popup__visible');
+//   document.addEventListener('click', handlePopupClose);
+//   document.addEventListener('keydown', closePressTheEsc);
+// };
   
-function closePopup(popup) {
-  popup.classList.remove('popup__visible');
-  document.removeEventListener('click', handlePopupClose);
-  document.removeEventListener('keydown', closePressTheEsc);
-};
+// function closePopup(popup) {
+//   popup.classList.remove('popup__visible');
+//   document.removeEventListener('click', handlePopupClose);
+//   document.removeEventListener('keydown', closePressTheEsc);
+// };
 
 // закрытие и открытие попапа редактирования 
-const openPopupEdit = () => {
-  openPopup(popupEdit);
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
-  formProfileValidator.resetError();
-};
+// const openPopupEdit = () => {
+//   openPopup(popupEdit);
+//   nameInput.value = profileName.textContent;
+//   jobInput.value = profileJob.textContent;
+//   formProfileValidator.resetError();
+// };
 
-// закрытие и открытие попапа добавления
-const openPopupAdd = () => {
-  openPopup(popupAdd);
-  formAddValidator.resetError();
-};
+// // закрытие и открытие попапа добавления
+// const openPopupAdd = () => {
+//   openPopup(popupAdd);
+//   formAddValidator.resetError();
+// };
 
-const closePopupAdd = () => { 
-  closePopup(popupAdd); 
-};
+// const closePopupAdd = () => { 
+//   closePopup(popupAdd); 
+// };
 
-buttonEdit.addEventListener('click', openPopupEdit);
-buttonAdd.addEventListener('click', openPopupAdd);
+// buttonEdit.addEventListener('click', openPopupEdit);
+// buttonAdd.addEventListener('click', openPopupAdd);
 
 // submit попапа редактирования
 function submitEditProfileForm (evt) {
@@ -121,11 +128,9 @@ const openPopupImg = (cardData) => {
   popupImageDescription.textContent = cardData.name;
   popupImagePhoto.src = cardData.link;
   popupImagePhoto.alt = cardData.name;
-  openPopup(popupImage);
+//   openPopup(popupImage);
 };
   
-const selectorTemplate = '#card-template';
-const cardsContainer = document.querySelector('.cards');
 
 function createNewCard(element) {
   const card = new Card(element, selectorTemplate, openPopupImg); 
