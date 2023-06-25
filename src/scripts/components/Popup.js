@@ -15,13 +15,15 @@ class Popup {
     }
 
     _handleCLickByOverlay = (evt) => {
-      if(evt.target === evt.currentTarget) {
+        const overlay = evt.target.classList.contains('popup');
+        const closeBtn = evt.target.classList.contains('popup__close');
+        if (overlay || closeBtn) {
         this.close();
-      }
+    }
     }
 
     setEventListeners() {
-      this._popupCloseButton.setEventListener('click', this._handleCLoseButton);
+      this._popupCloseButton.addEventListener('click', this._handleCLoseButton);
       this._popup.addEventListener('click', this._handleCLickByOverlay); 
     }
 
@@ -36,4 +38,4 @@ class Popup {
     }
 }
 
-export {Popup}
+export {Popup};
