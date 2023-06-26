@@ -15,11 +15,9 @@ class Popup {
     }
 
     _handleCLickByOverlay = (evt) => {
-        const overlay = evt.target.classList.contains('popup');
-        const closeBtn = evt.target.classList.contains('popup__close');
-        if (overlay || closeBtn) {
+        if (evt.target === evt.currentTarget) {
         this.close();
-    }
+        }
     }
 
     setEventListeners() {

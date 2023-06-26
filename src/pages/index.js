@@ -1,4 +1,4 @@
-import './pages/index.css';
+import './index.css';
 
 import {initialCards,
   buttonEdit, 
@@ -12,14 +12,14 @@ import {initialCards,
   popupImageSelector,
   listsElementSelector,
   popupAddCardSelector,
-} from "./scripts/utils/constants.js";
+} from "../scripts/utils/constants.js";
 
-import { Card } from "./scripts/components/Card.js";
-import { FormValidator } from "./scripts/components/FormValidator.js";
-import { PopupWithImage } from "./scripts/components/PopupWithImage.js";
-import { Section } from "./scripts/components/Section.js";
-import { UserInfo } from "./scripts/components/UserInfo.js";
-import { PopupWithForm } from "./scripts/components/PopupWithForm.js";
+import { Card } from "../scripts/components/Card.js";
+import { FormValidator } from "../scripts/components/FormValidator.js";
+import { PopupWithImage } from "../scripts/components/PopupWithImage.js";
+import { Section } from "../scripts/components/Section.js";
+import { UserInfo } from "../scripts/components/UserInfo.js";
+import { PopupWithForm } from "../scripts/components/PopupWithForm.js";
 
 const formProfileValidator = new FormValidator(validationConfig, formEditProfilee);
 formProfileValidator.enableValidation();
@@ -42,16 +42,12 @@ section.addArrayCard();
 
 const userInfo = new UserInfo (configInfo);
 
-const popupProfile = new PopupWithForm(popupProfileSelector, (evt) => {
-  evt.preventDefault();
-  userInfo.setUserInfo(popupProfile.getInputValue());
-  popupProfile.close();
+const popupProfile = new PopupWithForm(popupProfileSelector, (data) => {
+  userInfo.setUserInfo(data);
 });
 
-const popupAddCard = new PopupWithForm(popupAddCardSelector , (evt) => {
-    evt.preventDefault();
-    section.addItem(section.renderer(popupAddCard.getInputValue()));
-    popupAddCard.close();
+const popupAddCard = new PopupWithForm(popupAddCardSelector , (data) => {
+  section.addItem(data);
 });
 
 popupProfile.setEventListeners();
