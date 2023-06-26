@@ -25,14 +25,14 @@ class Card {
       this._cardLikeButton.classList.toggle("cards__like_active");
     }
   
-    _openImage = () => {
+    _handleOpenImage = () => {
       this._openPopupImg(this._cardData);
     }
   
     _setEvenListener () {
       this._cardDeleteButton.addEventListener('click', this._handleDelete);
       this._cardLikeButton.addEventListener('click', this._handleLike)
-      this._cardImage.addEventListener('click', this._openImage)
+      this._cardImage.addEventListener('click', this._handleOpenImage)
     }
   
     createCard() {

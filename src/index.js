@@ -1,3 +1,5 @@
+import './pages/index.css';
+
 import {initialCards,
   buttonEdit, 
   buttonAdd, 
@@ -10,16 +12,15 @@ import {initialCards,
   popupImageSelector,
   listsElementSelector,
   popupAddCardSelector,
-} from "../scripts/utils/constants.js";
+} from "./scripts/utils/constants.js";
 
-import { Card } from "../scripts/components/Card.js";
-import { FormValidator } from "../scripts/components/FormValidator.js";
-import { PopupWithImage } from "../scripts/components/PopupWithImage.js";
-import { Section } from "../scripts/components/Section.js";
-import { UserInfo } from "../scripts/components/UserInfo.js";
-import { PopupWithForm } from "../scripts/components/PopupWithForm.js";
+import { Card } from "./scripts/components/Card.js";
+import { FormValidator } from "./scripts/components/FormValidator.js";
+import { PopupWithImage } from "./scripts/components/PopupWithImage.js";
+import { Section } from "./scripts/components/Section.js";
+import { UserInfo } from "./scripts/components/UserInfo.js";
+import { PopupWithForm } from "./scripts/components/PopupWithForm.js";
 
-//экземпляры класса для разных форм
 const formProfileValidator = new FormValidator(validationConfig, formEditProfilee);
 formProfileValidator.enableValidation();
 
@@ -53,19 +54,17 @@ const popupAddCard = new PopupWithForm(popupAddCardSelector , (evt) => {
     popupAddCard.close();
 });
 
-const openPopupEdit = () => {
+popupProfile.setEventListeners();
+popupAddCard.setEventListeners();
+
+buttonEdit.addEventListener('click', () => {
   popupProfile.open();
   formProfileValidator.resetError();
   popupProfile.setInputValue(userInfo.getUserInfo());
-};
+});
 
-const openPopupAdd = () => {
+buttonAdd.addEventListener('click', () => {
   popupAddCard.open();
   formAddValidator.resetError();
-};
-
-popupProfile.setEventListeners();
-popupAddCard.setEventListeners();
-buttonEdit.addEventListener('click', openPopupEdit);
-buttonAdd.addEventListener('click', openPopupAdd);
+});
 
