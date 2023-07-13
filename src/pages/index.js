@@ -47,18 +47,18 @@ formAvatarValidator.enableValidation();
 const popupImage = new PopupWithImage(popupImageSelector);
 popupImage.setEventListeners();
 
-const DeletePopupCard = new PopupDeleteCard (popupDeleteSelector, ({card, cardId}) => {
+const deletePopupCard = new PopupDeleteCard (popupDeleteSelector, ({card, cardId}) => {
   api.deleteCard(cardId)
     .then(() => {
       card.removeCard()
-      DeletePopupCard.close()
+      deletePopupCard.close()
     })
     .catch((error => console.error(`Ошибка удаления карточки ${error}`)))
-    .finally()
+    .finally(() => deletePopupCard.setDefaultText());
 })
 
 function createNewCard (element) {
-  const card = new Card(element, selectorTemplate, popupImage.open, DeletePopupCard.open, (likeElement, cardId) => {
+  const card = new Card(element, selectorTemplate, popupImage.open, deletePopupCard.open, (likeElement, cardId) => {
     if (likeElement.classList.contains('cards__like_active')) {
       api.deleteLike(cardId)
         .then(res => {
@@ -92,7 +92,7 @@ const popupProfile = new PopupWithForm(popupProfileSelector, (data) => {
       })
     })
     .catch((error => console.error(`Ошибка редактирования профиля ${error}`)))
-    .finally()
+    .finally(() => popupProfile.setDefaultText())
 });
 
 const popupAddCard = new PopupWithForm(popupAddCardSelector , (data) => {
@@ -103,7 +103,7 @@ const popupAddCard = new PopupWithForm(popupAddCardSelector , (data) => {
     popupAddCard.close()
   })
   .catch((error => console.error(`Ошибка создания карточки ${error}`)))
-  .finally()
+  .finally(() => popupAddCard.setDefaultText())
 });
 
 const popupAvatar = new PopupWithForm(popupAvatarSelector , (data) => {
@@ -116,11 +116,11 @@ const popupAvatar = new PopupWithForm(popupAvatarSelector , (data) => {
       })
     })
     .catch((error => console.error(`Ошибка обновления аватара ${error}`)))
-    .finally()
+    .finally(() => popupAvatar.setDefaultText())
   popupAvatar.close();
 });
 
-DeletePopupCard.setEventListeners();
+deletePopupCard.setEventListeners();
 popupAvatar.setEventListeners();
 popupProfile.setEventListeners();
 popupAddCard.setEventListeners();
@@ -140,8 +140,6 @@ profileAvatarOverlay.addEventListener('click', () => {
   formAvatarValidator.resetError();
   popupAvatar.open();
 })
-
-//принимаем массив с промисами и выполняем код, только когда все промисы исполнены
 
 Promise.all([api.getInfo(), api.getCards()])
   .then(([dataUser, dataCard]) => {
