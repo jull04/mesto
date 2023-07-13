@@ -15,13 +15,15 @@
       </header>
       <main class="content">
         <section class="profile">  
-            <img src="<%=require('./images/avatar.png')%>" class="profile__avatar" alt="аватар">
+            <button type="button" class="profile__avatar-overlay">
+            <img src="#" class="profile__avatar" alt="аватар">
+            </button>
             <div class="profile__info">
                 <div class="profile__name">
-                    <h1 class="profile__title">Юля Хабибова</h1>
+                    <h1 class="profile__title"></h1>
                     <button type="button" class="profile__edit-button" aria-label="Редактировать профиль"></button>
                 </div>
-                <p class="profile__subtitle">Природа и коты</p>
+                <p class="profile__subtitle"></p>
             </div> 
             <button type="button" class="profile__add-button" aria-label="Добавить карточку"></button>
         </section> 
@@ -62,13 +64,32 @@
             </figure>
         </form>
       </div>
+      <div class="popup popup_avatar">
+        <form class="popup__content popup__content_add" name="avatar-form" novalidate>
+          <button type="button" class="popup__close popup__close_add" aria-label="Закрыть"></button>  
+          <h3 class="popup__title">Обновить аватар</h3>
+            <input id="avatar" class="popup__input popup__input_title" type="url" name="avatar" placeholder="Ссылка на картинку" required>
+            <span class="avatar-error popup__error popup__error_visible"></span>
+          <button type="submit" class="popup__submit" value="Создать">Сохрнаить</button>
+        </form>
+      </div>
+      <div class="popup popup_delete">
+        <form class="popup__content popup__content_add" name="delete-form" novalidate>
+          <button type="button" class="popup__close popup__close_add" aria-label="Закрыть"></button>  
+          <h3 class="popup__title">Вы уверены?</h3>
+          <button type="submit" class="popup__submit" value="Создать">Да</button>
+        </form>
+      </div>
       <template id="card-template">
         <div class="cards__item">
           <img src="#" class="cards__image" alt="#">
           <button type="button" class="cards__trash" aria-label="Удалить"></button>
           <div class="cards__description">
               <h2 class="cards__title"></h2>
+              <div class="cards__like-container" >
               <button type="button" class="cards__like" aria-label="Лайк"></button>
+              <span class="cards__like-counter"></span>
+              </div>
           </div>
       </div>
       </template>
