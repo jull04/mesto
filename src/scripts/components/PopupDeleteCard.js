@@ -26,10 +26,6 @@ class PopupDeleteCard extends Popup {
     this._card = card;
     this._cardId = cardId;
   }
-
-  close() {
-    super.close();
-  }
 }; 
 
 export { PopupDeleteCard };
