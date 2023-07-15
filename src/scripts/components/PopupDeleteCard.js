@@ -5,7 +5,7 @@ class PopupDeleteCard extends Popup {
     super(popupSelector);
     this._sumbitFunction = sumbitFunction;
     this._submitButton = this._form.querySelector('.popup__submit');
-    // this._form = this._popup.querySelector('.popup__content'); 
+    this._form = this._popup.querySelector('.popup__content'); 
 }
 
   setEventListeners() {

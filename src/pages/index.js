@@ -90,6 +90,7 @@ const popupProfile = new PopupWithForm(popupProfileSelector, (data) => {
         job: res.about, 
         avatar: res.avatar
       })
+      popupProfile.close(); 
     })
     .catch((error => console.error(`Ошибка редактирования профиля ${error}`)))
     .finally(() => popupProfile.setDefaultText())
