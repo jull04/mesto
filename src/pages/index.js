@@ -58,8 +58,8 @@ const deletePopupCard = new PopupDeleteCard (popupDeleteSelector, ({card, cardId
 })
 
 function createNewCard (element) {
-  const card = new Card(element, selectorTemplate, popupImage.open, deletePopupCard.open, (likeElement, cardId) => {
-    if (likeElement.classList.contains('cards__like_active')) {
+  const card = new Card(element, selectorTemplate, popupImage.open, deletePopupCard.open, (isLike, cardId) => {
+    if (isLike) {
       api.deleteLike(cardId)
         .then(res => {
           card.toggleLike(res.likes)
@@ -96,9 +96,9 @@ const popupProfile = new PopupWithForm(popupProfileSelector, (data) => {
 });
 
 const popupAddCard = new PopupWithForm(popupAddCardSelector , (data) => {
-  Promise.all([api.getInfo(), api.addCard(data)])
-  .then(([dataUser, dataCard]) => {
-    dataCard.myid = dataUser._id;
+  api.addCard(data)
+  .then(dataCard => {
+    dataCard.myid = userInfo.getid()
     section.addItemPrepend(createNewCard(dataCard))
     popupAddCard.close()
   })
@@ -114,10 +114,10 @@ const popupAvatar = new PopupWithForm(popupAvatarSelector , (data) => {
         job: res.about, 
         avatar: res.avatar
       })
+      popupAvatar.close();
     })
     .catch((error => console.error(`Ошибка обновления аватара ${error}`)))
     .finally(() => popupAvatar.setDefaultText())
-  popupAvatar.close();
 });
 
 deletePopupCard.setEventListeners();
@@ -149,6 +149,7 @@ Promise.all([api.getInfo(), api.getCards()])
       job: dataUser.about, 
       avatar: dataUser.avatar
     })
+    userInfo.getid(dataUser._id);
     section.addArrayCard(dataCard);
   })
   .catch((error => console.error(`Ошибка ${error}`)))

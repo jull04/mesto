@@ -14,6 +14,15 @@ class UserInfo {
     this._profileName.textContent = firstname;
     this._profileJob.textContent = job;
   }
+
+  setid (id) {
+    this._id = id;
+  }
+
+  getid() {
+    return this._id;
+  }
+
 }
 
 export {UserInfo};

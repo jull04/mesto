@@ -6,6 +6,7 @@ class PopupWithImage extends Popup {
         this._popupImage = this._popup.querySelector('.popup__img');
         this._popupImageCaption = this._popup.querySelector('.popup__description');
     }
+  
 
     open = (cardData) => {
       this._popupImage.src =  cardData.link;

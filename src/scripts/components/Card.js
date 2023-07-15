@@ -11,9 +11,10 @@ class Card {
       this._selectorTemplate = selectorTemplate;
       this._openDeletePopup = openDeletePopup;
       this._ownerId = cardData.owner._id;
-      this._cardId = cardData._id;  
+      this._cardId = cardData._id; 
+      this._isLike = false; 
     }
-  
+
     _getTemplate() {
       const cardElement = document
         .querySelector(this._selectorTemplate)
@@ -29,7 +30,7 @@ class Card {
     }
   
     _handleLike = () => {
-      this._changeLike(this._cardLikeButton, this._cardId)
+      this._changeLike(this._isLike, this._cardId)
     }
   
     _handleOpenImage = () => {
@@ -50,6 +51,7 @@ class Card {
     _checkLike() {
       this._likes.forEach(item => {
         if(item._id === this._myId) {
+          this._isLike = true;
           this._cardLikeButton.classList.add("cards__like_active");
           return 
         }

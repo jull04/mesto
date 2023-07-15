@@ -1,7 +1,6 @@
 class Section {
   constructor(renderer, containerSelector) {
     this._container = document.querySelector(containerSelector);
-    // this._initialCard = items;
     this._renderer = renderer;
   }
 
