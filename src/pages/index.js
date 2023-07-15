@@ -144,7 +144,6 @@ profileAvatarOverlay.addEventListener('click', () => {
 
 Promise.all([api.getInfo(), api.getCards()])
   .then(([dataUser, dataCard]) => {
-    dataCard.forEach(element => element.myId = dataUser._id);
     userInfo.setUserInfo({
       firstname: dataUser.name, 
       job: dataUser.about, 

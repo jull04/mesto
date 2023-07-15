@@ -1,7 +1,7 @@
 class Card {
-    constructor (cardData, selectorTemplate, openPopupImg, openDeletePopup, changeLike) {
+    constructor (cardData, myid, selectorTemplate, openPopupImg, openDeletePopup, changeLike) {
       this._cardData = cardData;
-      this._myId = cardData.myId;
+      this._myid = myid;
       this._link = cardData.link;
       this._name = cardData.name;
       this._likes = cardData.likes;
