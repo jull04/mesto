@@ -16,7 +16,6 @@ class PopupWithForm extends Popup {
       evt.preventDefault();
       this._submitButton.textContent = `${this._submitButton.textContent}...`
       this._submitFunction(this._getInputValue());
-      this.close();
     });
   }
 
